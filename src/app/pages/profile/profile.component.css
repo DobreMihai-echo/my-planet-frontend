@@ -1,0 +1,244 @@
+.container {
+    padding: 20px 6%;
+    display: flex;
+    margin: 0 !important;
+    flex-wrap: nowrap; /* To prevent the items from wrapping */
+    justify-content: space-between;
+}
+
+.left-sidebar {
+    position:sticky;
+    top: 73px;
+    flex-basis: 25%;
+    align-self: flex-start;
+    margin-right: 1%;
+}
+
+.sidebar-profile-box {
+    background-color: #fff;
+}
+
+.sidebar-profile-info {
+    padding: 0 5%;
+}
+
+.sidebar-profile-info img {
+    width: 90px;
+    border-radius: 50%;
+    background: #fff;
+    padding: 4px;
+    margin-top: -45px;
+}
+
+.sidebar-profile-info h1 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #222;
+}
+
+.sidebar-profile-info ul {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.sidebar-profile-info ul li {
+    width: 100%;
+    margin: 5px 0;
+    font-size: 13px;
+}
+
+.sidebar-profile-info ul li span {
+    float: right;
+    color: #045be6;
+}
+
+
+.sidebar-challenges {
+    background: #fff;
+    padding: 5px 25px;
+    margin: 12px 0;
+}
+
+.sidebar-challenges h3 {
+    color: #777;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 20px 0 10px;
+}
+
+.sidebar-challenges h4 {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: #888;
+    margin: 3px 0;
+}
+
+.right-sidebar {
+    position: sticky;
+    top: 73px;
+    flex-basis: 25%;
+    align-self: flex-start;
+    margin-left: 1%;
+}
+
+.leaderboard {
+    background: #fff;
+    padding: 10px 25px;
+}
+
+.leaderboard h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 10px 0 30px;
+}
+
+.create-post {
+    background: #fff;
+}
+
+.create-post-input {
+    padding: 20px 25px 10px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.create-post-input img {
+    width: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.create-post-input textarea{
+    width: 100%;
+    border: 0;
+    outline: 0;
+    resize: none;
+    background: transparent;
+    margin-top: 8px;
+}
+
+.main-content {
+    flex-basis: 48%;
+    align-self: flex-start;
+    margin-right: 1%;
+    margin-left: 1%;
+}
+
+.post {
+    background: #fff;
+    padding: 20px 25px 5px;
+    margin: 5px 0 15px;
+}
+
+.post-author {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.post-author img {
+    width: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.post-author h1 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.post-author small {
+    display: block;
+    margin-bottom: -2px;
+}
+
+.post p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.post-stats {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 6px;
+}
+
+.post-stats div {
+    display: flex;
+    align-items: center;
+}
+
+.post-stats img {
+    width: 15px;
+    margin-right: -5px;
+}
+
+/* Common styles for both buttons */
+.choose-challenge-button, .create-challenge-button {
+    font-size: 16px;
+    border-radius: 24px;
+    padding: 12px 24px;
+    margin: 8px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  /* Specific style for Choose Challenge button */
+  .choose-challenge-button {
+    background-color: #4CAF50;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .choose-challenge-button:hover {
+    background-color: #45a049;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Specific style for Create Challenge button */
+  .create-challenge-button {
+    background-color: #2196F3;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .create-challenge-button:hover {
+    background-color: #1e88e5;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Style for the challenge container */
+.challenge-container {
+  max-height: 600px; /* or whatever height you prefer */
+  overflow-y: auto;
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: rebeccapurple green; /* For Firefox */
+}
+
+/* For Chrome, Safari, and Opera */
+.challenge-container::-webkit-scrollbar {
+  width: 12px;
+}
+
+.challenge-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.challenge-container::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.challenge-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+  
+  

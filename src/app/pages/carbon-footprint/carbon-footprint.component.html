@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="d-flex justify-content-between mb-4">
+        <div>
+            <button (click)="openFootprintDialog()" class="btn btn-danger me-3 red-button" style="background-color: #D9534F; color: white; margin-right: 20px;">Add footprint</button>
+            <button (click)="openFootprintOffsetDialog()" class="btn btn-success green-button" style="background-color: #498929;">Add offset</button>
+        </div>
+        <form [formGroup]="dateRangeForm">
+            <mat-form-field appearance="fill">
+                <mat-label>Choose a date range</mat-label>
+                <mat-date-range-input [rangePicker]="picker">
+                  <input formControlName="start" matStartDate placeholder="Start date">
+                  <input formControlName="end" matEndDate placeholder="End date" >
+                </mat-date-range-input>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+              </mat-form-field>
+        </form>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-lg-3">
+            <section class="shadow p-3 mb-5 bg-white rounded">
+                <highcharts-chart [Highcharts]="Highcharts" [options]="carbonOffset"
+                style="width: 100%; height: 400px; display: block;"></highcharts-chart>
+            </section>
+        </div>
+        <div class="col-lg-6">
+            <!-- <select [(ngModel)]="selectedYear" (change)="onYearChange()">
+                <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+              </select> -->
+            <section class="shadow p-3 mb-5 bg-white rounded">
+                <highcharts-chart [Highcharts]="Highcharts" [options]="totalFootprint"
+                    style="width: 100%; height: 400px; display: block;"></highcharts-chart>
+            </section>
+        </div>
+        <div class="col-lg-3">
+            <section class="shadow p-3 mb-5 bg-white rounded">
+                <highcharts-chart [Highcharts]="Highcharts" [options]="topEmissions"
+                    style="width: 100%; height: 400px; display: block;"></highcharts-chart>
+            </section>
+        </div>
+        <div class="col-lg-3">
+            <section class="shadow p-3 mb-5 bg-white rounded">
+            </section>
+        </div>
+        <div class="col-lg-6">
+            <section class="shadow p-3 mb-5 bg-white rounded">
+            </section>
+        </div>
+        <div class="col-lg-3">
+            <section class="shadow p-3 mb-5 bg-white rounded">
+            </section>
+        </div>
+    </div>
+</div>

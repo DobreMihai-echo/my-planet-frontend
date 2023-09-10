@@ -1,0 +1,211 @@
+<div class="container py-5">
+  <section class="mb-5">
+    <div class="row gx-xl-5">
+      <div class="col-xl-3 col-md-6 mb-4 mb-xl-0">
+        <!-- Card -->
+        <a
+           class="
+                  d-flex
+                  align-items-center
+                  p-4
+                  bg-glass
+                  shadow-4-strong
+                  rounded-6
+                  text-reset
+                  ripple
+                  "
+           href="#"
+           data-ripple-color="hsl(0, 0%, 75%)"
+           >
+          <div class="p-3 bg-theme rounded-4">
+            <i class="fas fa-usersBase fa-lg text-white fa-fw"></i>
+          </div>
+
+          <div class="ms-4">
+            <p class="text-muted mb-2">CO2</p>
+            <p class="mb-0">
+              <span class="h5 me-2">14 567 </span>
+              <small class="text-success text-sm"
+                     ><i class="fas fa-arrow-up fa-sm me-1"></i>13,48%</small
+                >
+            </p>
+          </div>
+        </a>
+        <!-- Card -->
+      </div>
+
+      <div class="col-xl-3 col-md-6 mb-4 mb-xl-0">
+        <!-- Card -->
+        <a
+           class="
+                  d-flex
+                  align-items-center
+                  p-4
+                  bg-glass
+                  shadow-4-strong
+                  rounded-6
+                  text-reset
+                  ripple
+                  "
+           href="#"
+           data-ripple-color="hsl(0, 0%, 75%)"
+           >
+          <div class="p-3 bg-theme rounded-4">
+            <i class="fas fa-file-alt fa-lg text-white fa-fw"></i>
+          </div>
+
+          <div class="ms-4">
+            <p class="text-muted mb-2">Challenges</p>
+            <p class="mb-0">
+              <span class="h5 me-2">51 354</span>
+              <small class="text-success text-sm"
+                     ><i class="fas fa-arrow-up fa-sm me-1"></i>23,58%</small
+                >
+            </p>
+          </div>
+        </a>
+        <!-- Card -->
+      </div>
+
+      <div class="col-xl-3 col-md-6 mb-4 mb-xl-0">
+        <!-- Card -->
+        <a
+           class="
+                  d-flex
+                  align-items-center
+                  p-4
+                  bg-glass
+                  shadow-4-strong
+                  rounded-6
+                  text-reset
+                  ripple
+                  "
+           href="#"
+           data-ripple-color="hsl(0, 0%, 75%)"
+           >
+          <div class="p-3 bg-theme rounded-4">
+            <i class="fas fa-clock fa-lg text-white fa-fw"></i>
+          </div>
+
+          <div class="ms-4">
+            <p class="text-muted mb-2">Trees planted</p>
+            <p class="mb-0">
+              <span class="h5 me-2">134KG</span>
+              <small class="text-danger text-sm"
+                     ><i class="fas fa-arrow-down fa-sm me-1"></i>23,58%</small
+                >
+            </p>
+          </div>
+        </a>
+        <!-- Card -->
+      </div>
+
+      <div class="col-xl-3 col-md-6 mb-4 mb-xl-0">
+        <!-- Card -->
+        <a
+           class="
+                  d-flex
+                  align-items-center
+                  p-4
+                  bg-glass
+                  shadow-4-strong
+                  rounded-6
+                  text-reset
+                  ripple
+                  "
+           href="#"
+           data-ripple-color="hsl(0, 0%, 75%)"
+           >
+          <div class="p-3 bg-theme rounded-4">
+            <i class="fas fa-sign-out-alt fa-lg text-white fa-fw"></i>
+          </div>
+
+          <div class="ms-4">
+            <p class="text-muted mb-2">Events</p>
+            <p class="mb-0">
+              <span class="h5 me-2">32.35% </span>
+              <small class="text-success text-sm"
+                     ><i class="fas fa-arrow-down fa-sm me-1"></i>23,58%</small
+                >
+            </p>
+          </div>
+        </a>
+        <!-- Card -->
+      </div>
+    </div>
+  </section>
+<section class="mb-5">
+  <div class="row gx-lg-5">
+    <div class="col-lg-6 mb-4 mb-lg-0">
+      <app-leaderboard></app-leaderboard>
+    </div>
+    <div class="col-lg-6 mb-4 mb-lg-0 direction" style="max-height: 400px; overflow:auto">
+      <app-challenge-list></app-challenge-list>
+    </div>
+  </div>
+</section>
+  <section class="mb-5">
+    <div class="row gx-lg-5">
+      <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+        <div class="bg-glass shadow-4-strong rounded-6 h-100">
+          <div class="p-4 border-bottom">
+            <div class="row align-items-center">
+              <div class="col-6 mb-4 mb-md-0">
+                <p class="text-muted mb-2">Co2</p>
+                <p class="mb-0">
+                  <span class="h5 me-2">14 567 </span>
+                  <small class="text-success text-sm"
+                         ><i class="fas fa-arrow-up fa-sm me-1"></i>13,48%</small>
+                </p>
+              </div>
+              <div class="col-6 mb-4 mb-md-0 text-end">
+                <a
+                   class="btn btn-outline-white btn-rounded"
+                   href="#"
+                   role="button"
+                   >Details</a
+                  >
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4">
+            <app-chart [region]="selectedRegion"></app-chart>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="bg-glass shadow-4-strong rounded-6">
+          <div class="p-4 border-bottom">
+            <div class="row align-items-center">
+              <div class="col-6 mb-4 mb-md-0">
+                <p class="text-muted mb-2">Location</p>
+                <p class="mb-0">
+                  <span class="h5 me-2">Top country: USA </span>
+                </p>
+              </div>
+
+              <div class="col-6 mb-4 mb-md-0 text-end">
+                <a
+                   class="btn btn-outline-white btn-rounded"
+                   href="#"
+                   role="button"
+                   >Details</a
+                  >
+              </div>
+            </div>
+          </div>
+          <!-- Card header -->
+
+          <!-- Card body -->
+          <div class="p-4 pb-0">
+            <app-mini-map (regionClicked)="updateChart($event)" class="map"></app-mini-map>
+          </div>
+          <!-- Card body -->
+        </div>
+        <!-- Card -->
+      </div>
+    </div>
+  </section>
+</div>
+

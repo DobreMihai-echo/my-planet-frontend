@@ -1,0 +1,39 @@
+<div class="login-wrapper">
+    <div class="container main">
+        <div class="row">
+            <div class="col-md-6 side-image">
+                <div class="text"><h1>My Planet</h1></div>
+                <img src="/assets/img/treeplanet.png"/>
+            </div>
+            <div class="col-md-6 right">
+                <div class="input-box">
+                    <h2>Create account</h2>
+                    <form [formGroup]="form"
+                    #localForm="ngForm"
+                    (ngSubmit)="submitForm()">
+                    <div class="input-field">
+                        <input [class.is-invalid]="localForm.submitted && form.get('username')?.invalid" formControlName="username" type="text" class="input" id="username" required autocomplete="off">
+                        <label for="username">Username</label>
+                        <div class="invalid-feedback">
+                            Username is required
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <input [class.is-invalid]="localForm.submitted && form.get('password')?.invalid" formControlName="password" type="password" class="input" id="password" required>
+                        <label for="password">Password</label>
+                        <div class="invalid-feedback">
+                            Password is required
+                        </div>
+                    </div>
+                    <div class="input-field">
+                        <button type="submit" class="submit">Sign In</button>
+                    </div>
+                </form>
+                    <div class="signin">
+                        <span>Already have an account? <a routerLink="/register">Click here</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+.profile-pic {
+    width: 150px;
+    border-radius: 50%;
+    margin-top: -75px;
+    padding: 5px;
+    background: #fff;
+}
+
+.cover-photo-container,
+.profile-photo-container {
+  position: relative;
+}
+
+.cover-photo,
+.profile-pic {
+  max-width: 100%;
+  height: auto;
+}
+
+.hidden-input {
+  display: none;
+}
+
+.change-cover-photo-btn,
+.change-photo-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  cursor: pointer;
+}

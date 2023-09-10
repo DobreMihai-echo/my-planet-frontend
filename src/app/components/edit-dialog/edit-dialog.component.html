@@ -1,0 +1,57 @@
+<div class="container">
+    <h1>Edit Profile</h1>
+    <hr>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="cover-photo-container">
+          <img [src]="'data:image/jpeg;base64,' + user.coverPhoto" class="cover-photo">
+          <div class="change-cover-photo-btn">
+            <img [src]="'data:image/jpeg;base64,' + user.coverPhoto" class="cover-photo" (click)="coverPhotoInput.click()">
+            <input #coverPhotoInput type="file" class="hidden-input" (change)="changeCoverPhoto($event)">
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-3 text-center">
+        <div class="profile-photo-container">
+            <img [src]="'data:image/jpeg;base64,' + user.profilePhoto" class="profile-pic" (click)="profilePhotoInput.click()">
+            <input #profilePhotoInput type="file" class="hidden-input" (change)="changeProfilePhoto($event)">
+        </div>
+      </div>
+  
+      <div class="col-md-9 personal-info">
+        <form class="form-horizontal" role="form">
+          <div class="form-group">
+            <label>First name:</label>
+            <input class="form-control" type="text" [(ngModel)]="user.firstName" name="firstName">
+          </div>
+          <div class="form-group">
+            <label>Last name:</label>
+            <input class="form-control" [(ngModel)]="user.lastName" name="lastName">
+          </div>
+          <div class="form-group">
+            <label>Email:</label>
+            <input class="form-control" [(ngModel)]="user.email" name="email">
+          </div>
+          <div class="form-group">
+            <label>Username:</label>
+            <input class="form-control" [(ngModel)]="user.username" name="username">
+          </div>
+          <div class="form-group">
+            <label>Phone:</label>
+            <input class="form-control" [(ngModel)]="user.phone" name="phone">
+          </div>
+          <div class="form-group">
+            <label>About:</label>
+            <input class="form-control" [(ngModel)]="user.about" name="about">
+          </div>
+          <div class="form-group">
+            <input type="button" class="btn btn-primary" value="Save Changes" (click)="saveChanges()">
+            <input type="reset" class="btn btn-default" value="Cancel">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <hr>
+  

@@ -1,0 +1,32 @@
+
+/* Original red button color */
+.red-button {
+    background-color: #D9534F;
+    color: white;
+  }
+  
+  /* Add hover effect for red button */
+  .red-button:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Add click effect for red button */
+  .red-button:active {
+    transform: scale(0.95);
+  }
+  
+  /* Original green button color */
+  .green-button {
+    background-color: #5BC0DE;
+    color: white;
+  }
+  
+  /* Add hover effect for green button */
+  .green-button:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Add click effect for green button */
+  .green-button:active {
+    transform: scale(0.95);
+  }

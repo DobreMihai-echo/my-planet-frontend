@@ -1,0 +1,194 @@
+<mat-stepper [linear]="true" #stepper>
+    <mat-step label="Car co2" [stepControl]="carFormGroup" optional>
+        <div class="stepContainer">
+            <form [formGroup]="carFormGroup">
+                <ng-template matStepLabel>Car transportation</ng-template>
+                <div class="form-fields">
+                    <ng-lottie class="lotie" [options]="optionCar"
+                        (animationCreated)="animationCreated($event)"></ng-lottie>
+                    <mat-form-field>
+                        <mat-label>Vehicle type</mat-label>
+                        <mat-select #carSelect name="cars" id="cars" class="m-2" formControlName="cars">
+                            <mat-option value="SmallDieselCar">Small Diesel Car</mat-option>
+                            <mat-option value="MediumDieselCar">Medium Diesel Car</mat-option>
+                            <mat-option value="LargeDieselCar">Large Diesel Car</mat-option>
+                            <mat-option value="MediumHybridCar">Medium Hybrid Car</mat-option>
+                            <mat-option value="LargeHybridCar">Large Hybrid Car</mat-option>
+                            <mat-option value="MediumLPGCar">Medium LPG Car</mat-option>
+                            <mat-option value="LargeLPGCar">Large LPG Car</mat-option>
+                            <mat-option value="MediumCNGCar">Medium CNG Car</mat-option>
+                            <mat-option value="LargeCNGCar">Large CNG Car</mat-option>
+                            <mat-option value="SmallPetrolVan">Small Petrol/Gasoline Van</mat-option>
+                            <mat-option value="LargePetrolVan">Large Petrol/Gasoline Van</mat-option>
+                            <mat-option value="SmallDielselVan">Small Diesel Van</mat-option>
+                            <mat-option value="MediumDielselVan">Medium Diesel Van</mat-option>
+                            <mat-option value="LargeDielselVan">Large Diesel Van</mat-option>
+                            <mat-option value="LPGVan">LPG Van</mat-option>
+                            <mat-option value="CNGVan">CNG Van</mat-option>
+                            <mat-option value="SmallPetrolCar">Small Petrol/Gasoline Car</mat-option>
+                            <mat-option value="MediumPetrolCar">Medium Petrol/Gasoline Car</mat-option>
+                            <mat-option value="LargePetrolCar">Large Petrol/Gasoline Car</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Distance (km)</mat-label>
+                        <input matInput type="number" placeholder="0" formControlName="carKM">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button mat-button matStepperNext (click)="sendCar()">Next</button>
+                </div>
+            </form>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="publicTransportFormGroup" label="Fill out your address" optional>
+        <div class="stepContainer">
+            <form [formGroup]="publicTransportFormGroup">
+                <ng-template matStepLabel>Public transportation</ng-template>
+                <div class="form-fields">
+                    <ng-lottie class="lotie" [options]="optionTransit"
+                        (animationCreated)="animationCreated($event)"></ng-lottie>
+                    <mat-form-field>
+                        <mat-label>Vehicle type</mat-label>
+                        <mat-select #transitSelect name="transit" id="transit" class="m-2" formControlName="transit">
+                            <mat-option value="Taxi">Taxi</mat-option>
+                            <mat-option value="ClassicBus">Classic Bus</mat-option>
+                            <mat-option value="EcoBus">Eco Bus</mat-option>
+                            <mat-option value="Coach">Coach</mat-option>
+                            <mat-option value="NationalTrain">National Train</mat-option>
+                            <mat-option value="LightRail">Light Rail</mat-option>
+                            <mat-option value="Subway">Subway</mat-option>
+                            <mat-option value="FerryOnFoot">Ferry On Foot</mat-option>
+                            <mat-option value="FerryInCar">Ferry In Car</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Distance (km)</mat-label>
+                        <input matInput type="number" placeholder="0" formControlName="transitKM">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button mat-button matStepperNext (click)="sendTransit()">Next</button>
+                </div>
+            </form>
+        </div>
+
+    </mat-step>
+    <mat-step optional>
+        <div class="stepContainer">
+            <form [formGroup]="planeFormGroup">
+                <ng-template matStepLabel>Planet transportation</ng-template>
+                <div class="form-fields">
+                    <ng-lottie class="lotie" [options]="optionPlane"
+                        (animationCreated)="animationCreated($event)"></ng-lottie>
+                    <mat-form-field>
+                        <mat-label>Flight type</mat-label>
+                        <mat-select name="flight" id="flight" #flightSelect class="m-2" formControlName="plane">
+                            <mat-option value="DomesticFlight">Domestic Flight</mat-option>
+                            <mat-option value="ShortEconomyClassFlight">Short Economy Class Flight</mat-option>
+                            <mat-option value="ShortBusinessClassFlight">Short Business Class Flight</mat-option>
+                            <mat-option value="LongEconomyClassFlight">Long Economy Class Flight</mat-option>
+                            <mat-option value="LongPremiumClassFlight">Long Premium Class Flight</mat-option>
+                            <mat-option value="LongBusinessClassFlight">Long Business Class Flight</mat-option>
+                            <mat-option value="LongFirstClassFlight">Long First Class Flight</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Distance (km)</mat-label>
+                        <input matInput type="number" placeholder="0" formControlName="planeKM">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button mat-button matStepperNext (click)="sendPlane()">Next</button>
+                </div>
+            </form>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="energyFormGroup" optional>
+        <div class="stepContainer">
+            <form [formGroup]="energyFormGroup">
+                <ng-template matStepLabel>Energy</ng-template>
+                <div class="form-fields">
+                    <ng-lottie class="lotie" [options]="optionEnergy"
+                        (animationCreated)="animationCreated($event)"></ng-lottie>
+                    <mat-form-field>
+                        <mat-label>Energy type</mat-label>
+                        <mat-select #energySelect name="etype" id="etype" class="m-2" formControlName="energy">
+                            <mat-option value="Solar">Solar</mat-option>
+                            <mat-option value="Wind">Wind</mat-option>
+                            <mat-option value="HydroElectric">Hydro Electric</mat-option>
+                            <mat-option value="Biomass">Biomass</mat-option>
+                            <mat-option value="Geothermal">Geothermal</mat-option>
+                            <mat-option value="Tidal">Tidal</mat-option>
+                          </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Distance (km)</mat-label>
+                        <input matInput type="number" placeholder="0" formControlName="energyKW">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button mat-button matStepperNext (click)="sendEnergy()">Next</button>
+                </div>
+            </form>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="foodFormGroup">
+        <div class="stepContainer">
+            <form [formGroup]="foodFormGroup">
+                <ng-template matStepLabel>Food</ng-template>
+                <div class="form-fields">
+                    <ng-lottie class="lotie" [options]="optionFood"
+                        (animationCreated)="animationCreated($event)"></ng-lottie>
+                    <mat-form-field>
+                        <mat-label>Food type</mat-label>
+                        <mat-select name="ftype" id="ftype" class="m-2" formControlName="food">
+                            <mat-option value="d">Drinks</mat-option>
+                            <mat-option value="ss">Snacks/Sugar</mat-option>
+                            <mat-option value="os">Oils/Spreads</mat-option>
+                            <mat-option value="f">Fruit</mat-option>
+                            <mat-option value="v">Vegetables</mat-option>
+                            <mat-option value="cb">Cereals/Breads</mat-option>
+                            <mat-option value="cfp">Chicken/Fish/Pork</mat-option>
+                            <mat-option value="d">Dairy</mat-option>
+                            <mat-option value="bl">Beef/Lamb</mat-option>
+                          </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Calories</mat-label>
+                        <input matInput type="number" placeholder="0" formControlName="foodCalories">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button mat-button matStepperNext (click)="sendFood()">Next</button>
+                </div>
+            </form>
+        </div>
+    </mat-step>
+    <mat-step [stepControl]="fuelFormGroup" optional>
+        <div class="stepContainer">
+            <form [formGroup]="fuelFormGroup">
+                <ng-template matStepLabel>Fuel</ng-template>
+                <div class="form-fields">
+                    <ng-lottie class="lotie" [options]="optionFuel"
+                        (animationCreated)="animationCreated($event)"></ng-lottie>
+                    <mat-form-field>
+                        <mat-label>Fuel type</mat-label>
+                        <mat-select name="ftype" id="ftype" class="m-2" formControlName="fuel">
+                            <mat-option value="Petrol">Petrol/Gasoline</mat-option>
+                            <mat-option value="Diesel">Diesel/Gasoline</mat-option>
+                            <mat-option value="LPG">LPG</mat-option>
+                          </mat-select>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Liters</mat-label>
+                        <input matInput type="number" placeholder="0" formControlName="fuelLiters">
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button mat-button matStepperNext (click)="sendFuel()">Next</button>
+                </div>
+            </form>
+        </div>
+    </mat-step>
+</mat-stepper>

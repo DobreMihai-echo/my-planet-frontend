@@ -1,0 +1,29 @@
+<div class="challenge-list">
+    <div class="challenge-item" *ngFor="let challenge of challenges">
+      <div class="challenge-content">
+        <h3>{{ challenge.title }}</h3>
+        <div class="challenge-level" [style.background]="getLevelColor(challenge.level)">
+          {{ challenge.level }}
+        </div>
+        <p>{{ challenge.description }}</p>
+        <div class="challenge-meta">
+          <span>Current Participants: {{ challenge.participants }}</span>
+          <span>Points: {{ challenge.points }}</span>
+        </div>
+      </div>
+      <div class="challenge-actions">
+        <button class="complete-button">
+          <mat-icon>check_circle</mat-icon>
+          Complete
+        </button>
+        <button class="cancel-button">
+          <mat-icon>cancel</mat-icon>
+        </button>
+        <div class="star-review" (mouseover)="starHover = true" (mouseout)="starHover = false">
+          <mat-icon *ngIf="starHover">star</mat-icon>
+          <mat-icon *ngIf="!starHover">star_border</mat-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+  

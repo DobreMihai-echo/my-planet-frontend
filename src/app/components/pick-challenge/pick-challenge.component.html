@@ -1,0 +1,36 @@
+<div mat-dialog-content>
+    <p>Please select challenges you wish to make</p>
+    <div *ngIf="loading" class="loader">Loading...</div>
+    <div *ngIf="!loading">
+      <<div class="challenge-list">
+        <div *ngFor="let challenge of done; let i = index" class="challenge-card" [class.selected]="selectedChallengeIndices.includes(i)" (click)="toggleSelection(i)">
+          <div class="card-front">
+            <div class="challenge-header">
+              <span class="challenge-title">{{ challenge.title }}</span>
+              <span class="challenge-level">{{ challenge.level }}</span>
+            </div>
+            <div class="challenge-stats">
+              <span class="challenge-points">{{ challenge.points }} Points</span>
+              <span class="challenge-users">13 Users</span>
+            </div>
+            <input type="checkbox" [checked]="selectedChallengeIndices.includes(i)" class="checkbox" />
+          </div>
+          <div class="card-back">
+            <!-- Challenge Details Here -->
+          </div>
+        </div>
+      </div>
+      <mat-chip-listbox>
+        <mat-chip-option *ngFor="let index of selectedChallengeIndices" (removed)="removeChallenge($event, index)">
+          {{ done[index].title }}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip-option>
+      </mat-chip-listbox>
+    </div>
+  </div>
+  
+  <div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-button cdkFocusInitial (click)="onPick()">Pick</button>
+  </div>
+  

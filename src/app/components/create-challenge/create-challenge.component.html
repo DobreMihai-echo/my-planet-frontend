@@ -1,0 +1,61 @@
+<div mat-dialog-content class="dialog-content">
+    <form [formGroup]="createChallengeForm" (ngSubmit)="onSubmit()" class="create-form">
+  
+      <div class="header">
+        <h2 class="dialog-title">Create Your Challenge</h2>
+      </div>
+  
+      <div class="form-container">
+        <!-- Title -->
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="full-width-field">
+            <mat-label><mat-icon>title</mat-icon> Title</mat-label>
+            <input matInput placeholder="Enter challenge title" formControlName="title">
+          </mat-form-field>
+        </div>
+  
+        <!-- Description -->
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="full-width-field">
+            <mat-label><mat-icon>description</mat-icon> Description</mat-label>
+            <textarea matInput placeholder="Describe the challenge" formControlName="description"></textarea>
+          </mat-form-field>
+        </div>
+  
+        <!-- Points -->
+        <div class="form-group">
+          <mat-form-field appearance="fill" class="full-width-field">
+            <mat-label><mat-icon>star_rate</mat-icon> Points</mat-label>
+            <mat-select formControlName="points">
+              <mat-option *ngFor="let point of pointsArray" [value]="point">
+                {{ point }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+  
+        <!-- Tags -->
+        <div class="tags-section form-group">
+          <h3><mat-icon>tag</mat-icon> Tags</h3>
+          <button mat-icon-button color="primary" matTooltip="Add New Tag" matTooltipPosition="above" (click)="openAddTagDialog($event)">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
+  
+      <!-- Preview Card -->
+      <div class="preview-section">
+        <h2>Preview</h2>
+        <div class="preview-card">
+          <app-challenge-card class="card" [title]="title" [points]="points" [mycolor]="mycolor" [description]="description" [postTags]="postTags"></app-challenge-card>
+        </div>
+      </div>
+  
+      <!-- Actions -->
+      <div class="actions">
+        <button mat-raised-button class="cancel-button" (click)="onNoClick()">Cancel</button>
+        <button mat-raised-button class="create-button" type="submit" [disabled]="!createChallengeForm.valid">Create</button>
+      </div>
+    </form>
+  </div>
+  

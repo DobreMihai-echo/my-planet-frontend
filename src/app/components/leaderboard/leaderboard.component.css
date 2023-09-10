@@ -1,0 +1,97 @@
+/* High-Quality UI/UX CSS */
+.wrapper {
+    background-color: #f5f5f5;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    margin: 32px;
+    overflow: hidden;
+  }
+  
+  .lboard_section {
+    margin: 0 auto;
+    max-width: 960px;
+  }
+  
+  .lboard_tabs ul {
+    display: flex;
+    justify-content: space-around;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .lboard_tabs li {
+    flex: 1;
+    text-align: center;
+    padding: 24px;
+    cursor: pointer;
+    background-color: #dcdcdc;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+  
+  .lboard_tabs li.active {
+    background-color: #5ca4f1;
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  .lboard_wrap {
+    background-color: #ffffff;
+    padding: 32px;
+  }
+  
+  .lboard_mem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    padding: 24px;
+    background-color: #fafafa;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .img img {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .name_bar p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .name_bar {
+    flex-grow: 1;
+    margin-left: 32px;
+  }
+  
+  .bar_wrap {
+    height: 28px;
+    background-color: #ccc;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  
+  .inner_bar {
+    height: 100%;
+    background-color: #5ca4f1;
+  }
+  
+  .points {
+    flex-shrink: 0;
+    min-width: 120px;
+    text-align: right;
+    font-size: 1.2rem;
+    padding-left: 32px;
+    color: #555;
+  }
+  

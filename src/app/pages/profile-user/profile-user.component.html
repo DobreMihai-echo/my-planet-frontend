@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="profile-main">
+        <div class="profile-container">
+            <img [src]="'data:image/jpeg;base64,' + user.coverPhoto" width="100%">
+            <div class="profile-container-inner">
+                <img [src]="'data:image/jpeg;base64,' + user.profilePhoto" class="profile-pic">
+                <h1>{{user.firstName}} {{user.lastName}}</h1>
+                <p>{{user.phone}}</p>
+                <p>{{user.email}}</p>
+                <div class="profile-btn">
+                    <button *ngIf="!isUserAuthenticatedUser()" class="btn btn-primary">Follow</button>
+                    <button (click)="editAccount()" *ngIf="isUserAuthenticatedUser()" class="btn btn-primary">Edit</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-description">
+            <h2>About</h2>
+            <p>{{user.about}}</p>
+        </div>
+    </div>
+    <div class="profile-sidebar"></div>
+</div>

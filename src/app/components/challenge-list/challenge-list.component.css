@@ -1,0 +1,167 @@
+/* Container for all challenges */
+.challenge-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 400px;
+  }
+  
+  /* Individual Challenge Card */
+  .challenge-card {
+    position: relative;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    background: #fff; /* White background to make it pop */
+  }
+  
+  /* Card Header */
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .cancel-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .cancel-btn mat-icon {
+    font-size: 18px;
+    color: red;
+  }
+  
+  /* Challenge Level and Points */
+  .level-points {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .challenge-level {
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 4px;
+  }
+  
+  .level-basic {
+    background-color: green;
+    color: #fff;
+  }
+  
+  .level-intermediate {
+    background-color: orange;
+    color: #fff;
+  }
+  
+  .level-advanced {
+    background-color: red;
+    color: #fff;
+  }
+  
+  .challenge-points {
+    font-weight: 600;
+  }
+  
+  /* Card Content */
+  .card-content {
+    margin-top: 10px;
+  }
+  
+  /* Participants Count */
+  .challenge-participants {
+    display: flex;
+    align-items: center;
+  }
+  
+  .challenge-participants mat-icon {
+    margin-right: 5px;
+  }
+  
+  /* Complete Button */
+  .complete-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+  }
+  
+  .complete-btn:hover {
+    background-color: #45a049;
+  }
+  
+  /* Star Rating - Display on hover */
+  .star-rating {
+    display: none;
+  }
+  
+  .challenge-card:hover .star-rating {
+    display: block;
+  }
+
+  
+  .challenge-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .challenge-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .challenge-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .challenge-level {
+    padding: 5px;
+    color: white;
+    font-weight: bold;
+    width: fit-content;
+    border-radius: 3px;
+  }
+  
+  .challenge-meta {
+    font-size: 12px;
+    color: #666;
+    margin-top: 8px;
+  }
+  
+  .challenge-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .complete-button,
+  .cancel-button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .complete-button mat-icon,
+  .cancel-button mat-icon {
+    margin-right: 5px;
+  }
+  
+  .star-review mat-icon {
+    color: gold;
+    cursor: pointer;
+  }
+  

@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="left-sidebar">
+        <div class="sidebar-profile-box">
+            <img [src]="'data:image/jpeg;base64,' + user.coverPhoto" width="100%">
+            <div class="sidebar-profile-info">
+                <img [src]="'data:image/jpeg;base64,' + user.profilePhoto" class="profile-pic">
+                <h1> Dobre Mihai</h1>
+                <ul>
+                    <li (click)="openSearchDialog()">Your followers: <span>{{user.followerCount}}</span></li>
+                    <li (click)="openSearchDialog()">Your following: <span>{{user.followingCount}}</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="sidebar-challenges">
+            <div class="challenge-container">
+                <app-challenge-list></app-challenge-list>
+              </div>
+            <button class="choose-challenge-button" mat-raised-button (click)="openDialog()">Choose challenge</button>
+            <button class="create-challenge-button" mat-raised-button (click)="openDialogCreate()">Create
+                Challenge</button>
+
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="post">
+            <div class="post-author">
+                <img src="../../../assets/img/profile.jpg">
+                <div>
+                    <h1>Name</h1>
+                    <small>This is a placeholer change it</small>
+                    <small>2 hours ago</small>
+                </div>
+            </div>
+            <p>This user has planted 20 trees, thus reducing the offset of carbon by 0.5%</p>
+            <img src="../../../assets/img/cover.jpg">
+            <div class="post-stats">
+                <div>
+                    <mat-icon class="icons">thumb_up_alt</mat-icon>
+                    <mat-icon class="icoons">comment</mat-icon>
+                    <mat-icon class="icons">share</mat-icon>
+                    <span class="liked">75 people liked this post</span>
+                </div>
+                <div>
+                    <span>22 comments &middot; 40 shares</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right-sidebar">
+        <div class="leaderboard">
+            <h3>Leaderboard</h3>
+            <app-leaderboard></app-leaderboard>
+        </div>
+    </div>
+</div>
