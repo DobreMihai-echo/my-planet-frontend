@@ -20,7 +20,7 @@ export class UserService {
   }
 
   public register(registerData:any) {
-    return this.httpClient.post(`$/api/auth/register`, registerData);
+    return this.httpClient.post(`/api/auth/register`, registerData);
   }
 
   public getOrganization(username:string):Observable<UserOrganization> {
