@@ -2,72 +2,88 @@
     <div class="container main">
         <div class="row">
             <div class="col-md-6 side-image">
-                <div class="text"><h1>My Planet</h1></div>
-                <img src="/assets/img/treeplanet.png"/>
+                <div class="text">
+                    <h1>My Planet</h1>
+                </div>
+                <img src="/assets/img/treeplanet.png" />
             </div>
             <div class="col-md-6 right">
                 <div class="input-box">
                     <h2>Create account</h2>
-                    <form [formGroup]="form"
-                    #localForm="ngForm"
-                    (ngSubmit)="submitForm()">
-                    <div class="names">
-                        <div class="input-field">
-                            <input [class.is-invalid]="localForm.submitted && form.get('username')?.invalid" formControlName="firstName" type="text" class="input" id="firstName" required autocomplete="off">
-                            <label for="firstName">First Name</label>
-                            <div class="invalid-feedback">
-                                First Name is required
+                    <form [formGroup]="form" #localForm="ngForm" (ngSubmit)="submitForm()">
+                        <div class="names">
+                            <div class="input-field">
+                                <input [class.is-invalid]="localForm.submitted && form.get('username')?.invalid"
+                                    formControlName="firstName" type="text" class="input" id="firstName" required
+                                    autocomplete="off">
+                                <label for="firstName">First Name</label>
+                                <div class="invalid-feedback">
+                                    First Name is required
+                                </div>
+                            </div>
+                            <div class="input-field">
+                                <input [class.is-invalid]="localForm.submitted && form.get('lastName')?.invalid"
+                                    formControlName="lastName" type="text" class="input" id="lastName" required
+                                    autocomplete="off">
+                                <label for="lastName">Last Name</label>
+                                <div class="invalid-feedback">
+                                    Last Name is required
+                                </div>
                             </div>
                         </div>
                         <div class="input-field">
-                            <input [class.is-invalid]="localForm.submitted && form.get('lastName')?.invalid" formControlName="lastName" type="text" class="input" id="lastName" required autocomplete="off">
-                            <label for="lastName">Last Name</label>
+                            <input [class.is-invalid]="localForm.submitted && form.get('username')?.invalid"
+                                formControlName="username" type="text" class="input" id="username" required
+                                autocomplete="off">
+                            <label for="username">Username</label>
                             <div class="invalid-feedback">
-                                Last Name is required
+                                Username is required
                             </div>
                         </div>
-                    </div>
-                    <div class="input-field">
-                        <input [class.is-invalid]="localForm.submitted && form.get('username')?.invalid" formControlName="username" type="text" class="input" id="username" required autocomplete="off">
-                        <label for="username">Username</label>
-                        <div class="invalid-feedback">
-                            Username is required
+                        <div class="input-field">
+                            <input [class.is-invalid]="localForm.submitted && form.get('phone')?.invalid"
+                                formControlName="phone" type="text" class="input" id="phone" required
+                                autocomplete="off">
+                            <label for="phone">Phone</label>
+                            <div class="invalid-feedback">
+                                <div *ngIf="form.get('phone')?.errors?.['required']">Phone is required</div>
+                                <div *ngIf="form.get('phone')?.errors?.['pattern']">Invalid phone format</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-field">
-                        <input [class.is-invalid]="localForm.submitted && form.get('phone')?.invalid" formControlName="phone" type="text" class="input" id="phone" required autocomplete="off">
-                        <label for="phone">Phone</label>
-                        <div class="invalid-feedback">
-                            Phone is required
+                        <div class="input-field">
+                            <input [class.is-invalid]="localForm.submitted && form.get('email')?.invalid"
+                                formControlName="email" type="email" class="input" id="email" required
+                                autocomplete="off">
+                            <label for="email">Email</label>
+                            <div class="invalid-feedback">
+                                <div *ngIf="form.get('email')?.errors?.['required']">Email is required</div>
+                                <div *ngIf="form.get('email')?.errors?.['email']">Invalid email format</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-field">
-                        <input [class.is-invalid]="localForm.submitted && form.get('email')?.invalid" formControlName="email" type="email" class="input" id="email" required autocomplete="off">
-                        <label for="email">Email</label>
-                        <div class="invalid-feedback">
-                            Email is required
+                        <div class="input-field">
+                            <input [class.is-invalid]="localForm.submitted && form.get('password')?.invalid"
+                                formControlName="password" type="password" class="input" id="password" required>
+                            <label for="password">Password</label>
+                            <div class="invalid-feedback">
+                                Password is required
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-field">
-                        <input [class.is-invalid]="localForm.submitted && form.get('password')?.invalid" formControlName="password" type="password" class="input" id="password" required>
-                        <label for="password">Password</label>
-                        <div class="invalid-feedback">
-                            Password is required
+                        <div class="input-field">
+                            <input [class.is-invalid]="localForm.submitted && form.get('confirnmPassword')?.invalid"
+                                formControlName="confirnmPassword" type="password" class="input" id="confirnmPassword"
+                                required>
+                            <label for="confirnmPassword">Confirm Password</label>
+                            <div class="invalid-feedback">
+                                Confirm Password is required
+                            </div>
                         </div>
-                    </div>
-                    <div class="input-field">
-                        <input [class.is-invalid]="localForm.submitted && form.get('confirnmPassword')?.invalid" formControlName="confirnmPassword" type="password" class="input" id="confirnmPassword" required>
-                        <label for="confirnmPassword">Confirm Password</label>
-                        <div class="invalid-feedback">
-                            Confirm Password is required
+                        <div class="input-field">
+                            <button type="submit" class="submit">Sign Up</button>
                         </div>
-                    </div>
-                    <div class="input-field">
-                        <button type="submit" class="submit">Sign Up</button>
-                    </div>
-                </form>
+                    </form>
                     <div class="signin">
                         <span>Already have an account? <a routerLink="/login">Click here</a></span>
+                        <span>Not a user? <a routerLink="/register-organization">Click here to login as an organization</a></span>
                     </div>
                 </div>
             </div>

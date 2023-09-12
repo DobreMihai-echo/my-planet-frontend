@@ -1,36 +1,29 @@
 <div class="wrapper">
-    <div class="lboard_section">
-      <div class="lboard_tabs">
-        <ul>
-          <li [ngClass]="{'active': activeTab === 'today'}" (click)="activeTab = 'today'" data-li="today">Today</li>
-          <li [ngClass]="{'active': activeTab === 'month'}" (click)="activeTab = 'month'" data-li="month">Month</li>
-          <li [ngClass]="{'active': activeTab === 'year'}" (click)="activeTab = 'year'" data-li="year">Year</li>
-        </ul>
-      </div>
-      <div class="lboard_wrap">
-        <div *ngIf="activeTab === 'today'" class="lboard_item">
-          <!-- your list data for today goes here -->
-        </div>
-        <div *ngIf="activeTab === 'month'" class="lboard_item">
-          <div class="lboard_mem" *ngFor="let member of leaderboardData">
-            <div class="img">
-              <!-- Display member's profile image here -->
-            </div>
-            <div class="name_bar">
-              <p>{{ member.name }}</p>
-              <div class="bar_wrap">
-                <div class="inner_bar" [style.width.%]="(member.points / 200) * 100"></div>
-              </div>
-            </div>
-            <div class="points">
-              {{ member.points }} Points
+  <div class="lboard_section">
+    <div class="lboard_tabs">
+      <ul>
+        <li [ngClass]="{'active': activeTab === 'today'}" (click)="setActiveTab('today')" data-li="today">Today</li>
+        <li [ngClass]="{'active': activeTab === 'month'}" (click)="setActiveTab('month')" data-li="month">Month</li>
+        <li [ngClass]="{'active': activeTab === 'year'}" (click)="setActiveTab('year')" data-li="year">Year</li>
+      </ul>
+    </div>
+    <div class="lboard_wrap">
+      <div class="lboard_item">
+        <div class="lboard_mem" *ngFor="let users of currentLeaderboardData">
+          <div class="img"></div>
+          <img [attr.src]="users.profilePhoto ? 'data:image/jpeg;base64,' + users.profilePhoto : 'assets/img/profile.jpg'"
+            class="profile-pic">
+          <div class="name_bar">
+            <p>{{ users.firstName }} {{users.lastName}}</p>
+            <div class="bar_wrap">
+              <div class="inner_bar" [style.width.%]="(users.points / 200) * 100"></div>
             </div>
           </div>
-        </div>
-        <div *ngIf="activeTab === 'year'" class="lboard_item">
-          <!-- your list data for year goes here -->
+          <div class="points">
+            {{ users.points }} Points
+          </div>
         </div>
       </div>
     </div>
   </div>
-  
+</div>

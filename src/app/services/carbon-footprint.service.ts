@@ -14,7 +14,7 @@ export class CarbonFootprintService {
     const reqParams = {
       "username": username
     }
-    return this.http.get<CarbonFootprint[]>(`user/api/carbon-footprint`,{params:reqParams});
+    return this.http.get<CarbonFootprint[]>(`/user/api/carbon-footprint`,{params:reqParams});
   }
 
   postCarbonFootprint(carbon:CarbonFootprint, type:string) {

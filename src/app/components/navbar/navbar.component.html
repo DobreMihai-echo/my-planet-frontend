@@ -25,19 +25,19 @@
       <mat-icon>home</mat-icon>
       <span>Home</span>
     </button>
-    <button mat-button class="menu-button" routerLink="/footprint">
+    <button *ngIf="authService.roleMatch(['ROLE_USER'])" mat-button class="menu-button" routerLink="/footprint">
       <mat-icon>eco</mat-icon>
       <span>Carbon</span>
     </button>
-    <button mat-button class="menu-button" routerLink="/activity">
+    <button *ngIf="authService.roleMatch(['ROLE_USER'])" mat-button class="menu-button" routerLink="/activity">
       <mat-icon>person</mat-icon>
       <span>Activity</span>
     </button>
-    <button mat-button class="menu-button" routerLink="/profile">
+    <button *ngIf="authService.roleMatch(['ROLE_USER'])" mat-button class="menu-button" routerLink="/profile">
       <mat-icon>person</mat-icon>
       <span>Profile</span>
     </button>
-    <button *ngIf="authService.roleMatch(['ROLE_ORGANIZATION', 'ROLE_ORGANIZATION_MANAGER'])" mat-button class="menu-button" routerLink="/organization">
+    <button mat-button class="menu-button" routerLink="/organization">
       <mat-icon>info</mat-icon>
       <span>Organization</span>
     </button>

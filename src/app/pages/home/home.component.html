@@ -1,5 +1,5 @@
 <div class="my-google-map">
-    <google-map [center]="currentLocation" width="100%" height="1000px" (mapDblclick)="addMarker($event)"> 
+    <google-map [center]="currentLocation" width="100%" height="1200px" (mapDblclick)="addMarker($event)"> 
         <ng-container>
             <div *ngFor="let marker of markers; let i = index">
                 <map-marker #mymarker="mapMarker" 

@@ -1,8 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { TagsComponent } from '../tags/tags.component';
 import { ChallengeService } from 'src/app/services/challenge.service';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-challenge',
@@ -11,8 +12,7 @@ import { ChallengeService } from 'src/app/services/challenge.service';
 })
 export class CreateChallengeComponent {
 
-  @Input() type:string;
-  constructor(private fb: FormBuilder, private dialogRef: MatDialogRef<CreateChallengeComponent>, private matDialog: MatDialog, private challengeService: ChallengeService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private fb: FormBuilder, private dialogRef: MatDialogRef<CreateChallengeComponent>, private matDialog: MatDialog, private challengeService: ChallengeService) { }
 
   pointsArray = Array.from({ length: 10 }, (_, i) => 10 * (i + 1));
 
@@ -42,7 +42,7 @@ export class CreateChallengeComponent {
 
     if (title !== null && title !== undefined && description !== null && description !== undefined && points !== null && points !== undefined) {
       console.log("INSIDE IF:");
-      this.challengeService.postChallenge(this.type,obj).subscribe(data => {
+      this.challengeService.postChallenge(this.data.isOrganizationLevel,obj).subscribe(data => {
         this.dialogRef.close();
       })
     };

@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { Component } from '@angular/core';
+import { Component,Inject, EventEmitter, Output } from '@angular/core';
 import { CreateChallengeComponent } from '../create-challenge/create-challenge.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ChallengeService } from 'src/app/services/challenge.service';
@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Challenge } from 'src/app/models/challenges.interface';
 import { SnackbarComponent } from '../snackbar/snackbar.component';
 import { MatChipEvent, MatChipInputEvent } from '@angular/material/chips';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-pick-challenge',
@@ -17,8 +18,10 @@ export class PickChallengeComponent {
   done: Challenge[] = [];
   selectedChallengeIndices: number[] = [];
   loading: boolean = false;
+  @Output() challengePicked: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<PickChallengeComponent>,
     public service: ChallengeService,
     public auth: AuthService
@@ -35,7 +38,11 @@ export class PickChallengeComponent {
   }
 
   async getAllChallenges() {
-    this.done = await this.service.getAllChallenges(this.auth.getUsername()).toPromise() ?? [];
+    try {
+      this.done = await this.service.getAllChallenges(this.data.isOrganizationLevel).toPromise() ?? [];
+    } catch(error) {
+      console.error('An error occured:', error);
+    }
   }
 
   onCancel() {
@@ -70,6 +77,10 @@ export class PickChallengeComponent {
   }
 
   saveSelectedChallenges(selectedChallenges: Challenge[]) {
-    console.log('Selected challenges saved:', selectedChallenges);
+    const ids: number[] = this.done.map(challenge => challenge.id)
+    this.service.join(ids).subscribe(data => {
+      console.log("AFTER JOIN",data);
+      this.challengePicked.emit();
+    });
   }
 }

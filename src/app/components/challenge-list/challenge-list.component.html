@@ -7,12 +7,12 @@
         </div>
         <p>{{ challenge.description }}</p>
         <div class="challenge-meta">
-          <span>Current Participants: {{ challenge.participants }}</span>
+          <span>Current Participants: {{ challenge.challengeJoiners }}</span>
           <span>Points: {{ challenge.points }}</span>
         </div>
       </div>
       <div class="challenge-actions">
-        <button class="complete-button">
+        <button class="complete-button" (click)="completeChallenge(challenge.id)">
           <mat-icon>check_circle</mat-icon>
           Complete
         </button>

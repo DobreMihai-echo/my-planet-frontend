@@ -36,18 +36,24 @@
       </ng-container>
 
       <ng-container matColumnDef="role">
-        <th mat-sort-header mat-header-cell *matHeaderCellDef> Role</th>
-        <td mat-cell *matCellDef="let element">{{element.role}}</td>
-      </ng-container>
+        <th mat-sort-header mat-header-cell *matHeaderCellDef> Role </th>
+        <td mat-cell *matCellDef="let element">
+            <mat-form-field appearance="fill">
+                <mat-label>Role</mat-label>
+                <mat-select [(value)]="element.role" (selectionChange)="onRoleChange(element, $event)">
+                  <mat-option *ngFor="let role of availableRoles" [value]="role">
+                      {{ role }}
+                  </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </td>
+    </ng-container>
   
 
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Action</th>
         <td mat-cell *matCellDef="let element">
-
-          <button (click)="editcustomer(element.id)" mat-raised-button class="custom-outline-button">Edit</button>
-          <button mat-raised-button class="custom-outline-button" color="warn">Delete</button>
-          <button (click)="detailcustomer(element.id)" mat-raised-button class="custom-outline-button">Detail</button>
+          <button *ngIf="authService.roleMatch(['ROLE_ORGANIZATION'])" mat-raised-button class="custom-outline-button" color="warn">Delete</button>
           
         </td>
       </ng-container>

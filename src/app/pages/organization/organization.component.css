@@ -63,4 +63,90 @@ body {
     max-height: 400px;
   }
 
+  .challenge-container {
+    max-height: 400px;
+    overflow: auto;
+  }
+
+  mat-card {
+    width: 300px;
+    height: 250px;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Hover effect */
+  mat-card:hover {
+    box-shadow: 0 40px 70px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px);
+  }
+  
+  /* Card Header */
+  .card-header {
+    width: 100%;
+    padding: 15px;
+    text-align: center;
+  }
+  
+  /* Style the title of the organization */
+  mat-card-title {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #333;
+    margin: 0;
+  }
+  
+  /* Card Content */
+  .card-content {
+    width: 100%;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .info-item {
+    margin-bottom: 10px;
+  }
+  
+  .info-label {
+    font-weight: 600;
+    margin-right: 5px;
+  }
+  
+  /* Style the "Join" button */
+  mat-card-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center the button horizontally */
+  }
+  
+.organisations {
+  display: flex;
+  flex-direction: row;
+}
+
+  button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #45a049; /* Darker Green */
+  }
+
   

@@ -11,9 +11,12 @@ export class OrganizationService {
 
   constructor(private http: HttpClient) { }
 
-  getJoiners(organizationName:string): Observable<Joiners[]>{
-    const params = new HttpParams().set('organizationName', organizationName);
-    return this.http.get<Joiners[]>(`/api/organization/joiners`,{params});
+  getJoiners(username: string): Observable<Joiners[]>{
+    let reqParams = {
+      "username":username
+    }
+    
+    return this.http.get<Joiners[]>(`/api/organization/joiners`,{params:reqParams});
   }
   
 }

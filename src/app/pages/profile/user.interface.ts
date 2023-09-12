@@ -16,4 +16,5 @@ export interface User {
     dateLastModified: string;
     phone:string;
     about:string;
+    points:number;
 }

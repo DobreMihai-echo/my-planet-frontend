@@ -30,7 +30,7 @@
             <button mat-mini-fab matTooltip="Accent" color="primary" aria-label="Example mini fab with a heart icon">
               <i class="fas fa-comment" (click)="comments(marker.id)"></i>
             </button>
-            <button mat-mini-fab matTooltip="Accent" color="primary" aria-label="Example mini fab with a heart icon">
+            <button *ngIf="auth.getUsername()===marker.username" mat-mini-fab matTooltip="Accent" color="primary" aria-label="Example mini fab with a heart icon">
               <i class="fas fa-share" (click)="updateMarker(marker.id)"></i>
             </button>
           </div>
@@ -58,7 +58,7 @@
               <owl-carousel-o [options]="customOptions" class="joiner">
                 <ng-container *ngFor="let joiner of eventJoiners">
                   <ng-template carouselSlide>
-                    <!-- <a href="users/{{joiner.id}}"><app-joiners></app-joiners></a> -->
+                    <a href="users/{{joiner.id}}"><app-joiners-component></app-joiners-component></a>
                   </ng-template>
                 </ng-container>
               </owl-carousel-o>

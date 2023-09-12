@@ -59,7 +59,7 @@ export class MarkerService {
 		const formData = new FormData();
 		formData.append('content', content);
     const reqParams = new HttpParams().set('username', username);
-		return this.http.post<ReplyResponse>(`${this.API_URL}/api/events/${eventId}/messages/create`, formData, {params: reqParams}).pipe(
+		return this.http.post<ReplyResponse>(`/api/events/${eventId}/messages/create`, formData, {params: reqParams}).pipe(
       catchError((error: HttpErrorResponse)=> {
         return throwError(error);
       })

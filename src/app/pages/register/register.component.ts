@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { SnackbarComponent } from 'src/app/components/snackbar/snackbar.component';
@@ -21,14 +21,26 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      firstName: this.fb.control('', Validators.required),
-      lastName: this.fb.control('', Validators.required),
-      username: this.fb.control('', Validators.required),
-      email: this.fb.control('', Validators.required),
-      phone: this.fb.control('', Validators.required),
-      password: this.fb.control('', Validators.required),
-      confirmPassword: this.fb.control('', Validators.required)
-    }, {updateOn: 'submit'})
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      username: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [ Validators.required
+        // Validators.pattern("^[0-9]*$"),
+        // Validators.minLength(10), Validators.maxLength(10)]],
+      ]],
+        password: ['', [Validators.required, Validators.minLength(8)]],
+      confirmPassword: ['', Validators.required]
+    }, { validator: this.passwordMatchValidator, updateOn: 'submit' });
+  }
+
+  passwordMatchValidator(control: AbstractControl): void {
+    const password = control.get('password')?.value ?? '';
+    const confirmPassword = control.get('confirmPassword')?.value ?? '';
+  
+    if (password !== confirmPassword) {
+      control.get('confirmPassword')?.setErrors({ mismatch: true });
+    }
   }
 
   submitForm() {

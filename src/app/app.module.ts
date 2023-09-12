@@ -85,6 +85,8 @@ import { PickChallengeComponent } from './components/pick-challenge/pick-challen
 import { MatSliderModule } from '@angular/material/slider';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatChipsModule } from '@angular/material/chips';
+import { RegisterOrganizationComponent } from './pages/register-organization/register-organization.component';
+import { JoinersComponentComponent } from './commponents/joiners-component/joiners-component.component';
 
 
 
@@ -127,6 +129,8 @@ export function playerFactory() {
     CreateChallengeComponent,
     TagsComponent,
     PickChallengeComponent,
+    RegisterOrganizationComponent,
+    JoinersComponentComponent,
   ],
   imports: [
     BrowserModule,

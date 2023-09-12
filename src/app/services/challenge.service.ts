@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Challenge } from '../models/challenges.interface';
+import { error } from 'highcharts';
 
 @Injectable({
   providedIn: 'root'
@@ -21,32 +22,42 @@ export class ChallengeService {
     return this.itemsState;
   }
 
-  postChallenge(type:string, obj:any):Observable<any> {
+  postChallenge(isOrganizationLevel:boolean, obj:any):Observable<any> {
     let reqParamms = {
-      "type": type
+      "isOrganizationLevel": isOrganizationLevel
     }
     return this.http.post(`/api/challenge`,obj, {params: reqParamms});
   }
 
-  getAllChallenges(username:string):Observable<Challenge[]> {
+  getAllChallenges(isOrganizationLevel:boolean):Observable<Challenge[]> {
     let reqParams = {
-      username: username
+      "isOrganizationLevel": isOrganizationLevel
     }
-    return this.http.get<Challenge[]>(`/api/challenge/all`,{params:reqParams});
+    return this.http.get<Challenge[]>(`/api/challenge/all`,{params:reqParams}).pipe(
+      catchError(error => {
+        console.error(error);
+        return throwError(error);
+      })
+    );
   }
 
-  getAllOngoingChallenges(usernamme:string):Observable<Challenge[]> {
+  getAllOngoingChallenges(isOrganizationLevel:boolean):Observable<Challenge[]> {
     let reqParams = {
-      username: usernamme
+      "isOrganizationLevel": isOrganizationLevel
     }
 
     return this.http.get<Challenge[]>(`/api/challenge/ongoing`,{params:reqParams});
   }
 
-  join(challengeID:number, username:string):Observable<Challenge> {
-    const params = {
-      username: username
+  join(challengeID:number[]):Observable<any> {
+    const headers = { 'Content-Type': 'application/json' };
+    return this.http.put<any>(`/api/challenge/join`,challengeID, {headers, responseType: 'text' as 'json'});
+  }
+
+  completeChallenge(challengeID:number) {
+    const reqParamms = {
+      "challengeID": challengeID
     }
-    return this.http.put<Challenge>(`/api/challenge/join`,challengeID,{params: params});
+    return this.http.put(`/api/challenge/complete`,null,{params:reqParamms});
   }
 }

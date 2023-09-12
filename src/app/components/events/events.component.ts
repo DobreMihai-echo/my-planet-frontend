@@ -110,7 +110,7 @@ export class EventsComponent implements OnInit {
   }
 
   unjoin(markerid: number) {
-    this.markerService.unjoinEvent(markerid,this.getAuthUser().username).subscribe(data=>{
+    this.markerService.unjoinEvent(markerid,this.auth.getUsername()).subscribe(data=>{
       this.eventJoinersUsername = data;
       this.getJoiners();
     })

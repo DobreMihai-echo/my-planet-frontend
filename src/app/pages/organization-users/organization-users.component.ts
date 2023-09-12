@@ -21,7 +21,9 @@ export class OrganizationUsersComponent implements OnInit{
   @ViewChild(MatPaginator) paginatior !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
 
-  constructor(private service: OrganizationService, private userService: UserService, private authService:AuthService,
+  availableRoles = ['Manager', 'User'];
+
+  constructor(private service: OrganizationService, private userService: UserService, public authService:AuthService,
      private dialog: MatDialog) {
     
   }
@@ -30,19 +32,46 @@ export class OrganizationUsersComponent implements OnInit{
   }
 
   getUserOrganizationName() {
-    return this.userService.getOrganization(this.authService.getUsername()).subscribe((data =>{
-      this.loadcustomer(data.organizationName)
-    })) 
-  }
-
-  loadcustomer(organizationName:string) {
-    this.service.getJoiners(organizationName).subscribe(res => {
-      this.joinerList = res;
+    return this.service.getJoiners(this.authService.getUsername()).subscribe(res => {
+      this.joinerList = res.map(user => {
+        const roleObj = user.roles.find(role => role.name === 'ORGANIZATION_USER' || role.name === 'ORGANIZATION_MANAGER');
+        const mappedRole = this.mapRoleToDropdownValue(roleObj ? roleObj.name : 'Unknown');
+        return {
+          ...user,
+          role: mappedRole
+        }
+      });
       this.dataSource = new MatTableDataSource<Joiners>(this.joinerList);
       this.dataSource.paginator = this.paginatior;
       this.dataSource.sort = this.sort;
     });
   }
+
+  mapRoleToDropdownValue(role: string): string {
+    console.log("ROLE:",role);
+    const roleMap = {
+        'ORGANIZATION_MANAGER': 'Manager',
+        'ORGANIZATION_USER': 'User',
+    };
+    return roleMap[role] || 'Unknown';
+}
+
+onRoleChange(element: any, event: any) {
+  const newRole = event.value;
+  element.role = newRole;
+  const username = element.username;
+
+  this.userService.updateUserRole(username, newRole).subscribe(
+    response => {
+      // Handle successful API call
+      console.log("Role updated successfully:", response);
+    },
+    error => {
+      // Handle error during API call
+      console.log("Error updating role:", error);
+    }
+  );
+}
 
   Filterchange(data: Event) {
     const value = (data.target as HTMLInputElement).value;

@@ -13,6 +13,7 @@ import { OrganizationUsersComponent } from './pages/organization-users/organizat
 import { authGuard } from './auth/auth.guard';
 import { CarbonFootprintStepperComponent } from './components/carbon-footprint-stepper/carbon-footprint-stepper.component';
 import { ProfileUserComponent } from './pages/profile-user/profile-user.component';
+import { RegisterOrganizationComponent } from './pages/register-organization/register-organization.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,9 @@ const routes: Routes = [
   },
   {
     path: 'register', component: RegisterComponent
+  },
+  {
+    path: 'register-organization', component: RegisterOrganizationComponent
   },
   {
     path: 'organization', component: OrganizationComponent
