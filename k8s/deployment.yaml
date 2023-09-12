@@ -16,6 +16,14 @@ spec:
         image: IMAGE_URL/myplanet:latest
         ports:
         - containerPort: 80
+        resources:
+            limits:
+              cpu: "250m"
+              memory: "1Gi"
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+      restartPolicy: Always
 ---
 apiVersion: v1
 kind: Service
